@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,13 +21,39 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        Button addButton = (Button) findViewById(R.id.adb);
+
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                       // .setAction("Action", null).show();
+
+
             }
         });
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                // .setAction("Action", null).show();
+
+                TextView num_1 = (TextView)findViewById(R.id.textView);
+                TextView num_2 = (TextView)findViewById(R.id.textView2);
+                TextView res = (TextView)findViewById(R.id.textView3);
+                System.out.println("CALLED");
+                int myres = Integer.parseInt(num_1.getText().toString()) + Integer.parseInt(num_2.getText().toString());
+                res.setText(String.valueOf(myres));
+
+            }
+        });
+    }
+
+    public int subtract(int a, int b){
+        return a - b;
+
     }
 
     @Override
